@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  --dark-primary: #333333;
+  --dark-secondary: #999999;
+  --light-primary: #ffffff;
+  --accent: #FF6600;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+/* застосувати ті ж стилі до textarea */
+:is(input, textarea) {
+  border: 1px solid var(--dark-primary);
+  border-radius: 4px;
+  min-height: 32px;
+  line-height: 24px;
+  padding: 3px 4px;
+  font-family: inherit;
+  width: 100%;
+}
+
+:is(label, .tag) {
+  font-size: 10px;
+  font-weight: bold;
+}
+
+:checked+label {
+  color: #FF6600;
+}
+
+.tag {
+  color: #FF6600;
+  border: 1px solid var(--accent);
+  display: inline-block;
+  border-radius: 2px;
+  padding: 2px 3px;
+  text-transform: uppercase;
+}
+
+button {
+  color: var(--light-primary);
+  font-family: inherit;
+  border: none;
+
+  &.primary {
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  &.secondary {
+    background: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    color: var(--dark-primary);
+  }
+
+  &.icon-btn {
+    color: var(--dark-primary);
+    background: none;
+    padding: 2px;
+  }
+}
+
+.todo-item {
+  display: grid;
+  grid-template-areas:
+    "tags actions"
+    "content content"
+    "button button";
+  box-shadow: 0 4px 4px rgb(0, 0, 0 0.25);
+}
+
+@scope (.todo-item) {
+  .tags {
+    grid-area: tags;
+  }
+
+  .actions {
+    grid-area: actions;
+  }
+
+  .content {
+    grid-area: content;
+  }
+
+  :scope>button {
+    grid-area: button;
+    justify-self: start;
+  }
+}
