@@ -9,8 +9,14 @@ html {
   --dark-secondary: #999999;
   --light-primary: #ffffff;
   --accent: #FF6600;
+  --light-secondary: #E2E2E2;
   font-family: Inter, sans-serif;
   font-size: 16px;
+  background-color: var(--light-secondary);
+}
+
+body {
+  padding: 24px;
 }
 
 h1 {
@@ -86,7 +92,19 @@ button {
     "tags actions"
     "content content"
     "button button";
-  box-shadow: 0 4px 4px rgb(0, 0, 0 0.25);
+  box-shadow: 0 4px 4px rgb(0, 0, 0, 0.25);
+  padding: 16px;
+  row-gap: 16px;
+  background-color: var(--light-primary);
+  border-radius: 8px;
+
+  &.completed {
+    opacity: 0.5;
+
+    & :is(h2, p):not(.tag) {
+      text-decoration: line-through;
+    }
+  }
 }
 
 @scope (.todo-item) {
@@ -96,6 +114,7 @@ button {
 
   .actions {
     grid-area: actions;
+    justify-self: end;
   }
 
   .content {
