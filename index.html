@@ -10,6 +10,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="./index.js" defer></script>
   <title>TODO list</title>
 </head>
 <body>
@@ -43,33 +44,81 @@
     </svg>
   </button>  
 -->
+  <h1>Todo list</h1>
+  <search>
+    <form action="">
+      <input type="search" name="" id="">
+      <div class="categories">
+        <input type="radio" name="categories" id="household" hidden><label for="household">Household chores</label>
+        <input type="radio" name="categories" id="work" hidden><label for="work">Work</label>
+        <input type="radio" name="categories" id="fitness" hidden><label for="fitness">Fitness</label>
+      </div>
+    </form>
+  </search>
+  <ul id="todo-list"></ul>
+  <hr>
+  <form id="edit-form" data-mode="create" data-editId="">
+    <div class="form-control">
+      <label for="">Category</label>
+      <div class="categories">
+        <input type="checkbox" name="categories" id="household" hidden><label for="">Household chores</label>
+        <input type="checkbox" name="categories" id="work" hidden><label for="">Work</label>
+        <input type="checkbox" name="categories" id="fitness" hidden><label for="">Fitness</label>
+      </div>
+    </div>
+    <div class="form-control">
+      <label for="">Title</label>
+      <input name="title" type="text">
+    </div>
+    <div class="form-control">
+      <label for="">Description</label>
+      <textarea name="desc" rows="4"></textarea>
+    </div>
 
-  <li class="todo-item completed">
-    <div class="tags">
-      <p class="tag">фітнес</p>
-    </div>
-    <div class="actions">
-      <button class="icon-btn">
+    <div class="form-actions">
+      <button class="secondary">
         <svg width="20" height="20">
-          <use href="icons.svg#edit"></use>
+          <use href="icons.svg#cancel"></use>
         </svg>
+        Cancel
       </button>
-      <button class="icon-btn">
+      <button class="primary" type="submit">
         <svg width="20" height="20">
-          <use href="icons.svg#delete"></use>
+          <use href="icons.svg#submit"></use>
         </svg>
+        Save
       </button>
     </div>
-    <div class="content">
-      <h2>Title</h2>
-      <p>Description</p>
-    </div>
-    <button class="primary">
-      <svg width="20" height="20">
-        <use href="icons.svg#check"></use>
-      </svg>
-      Завершити
-    </button>
-  </li>
+  </form>
+
+  <template id="todo-list-item-template">
+    <li class="todo-item">
+      <div class="tags">
+        <p class="tag">fitness</p>
+      </div>
+      <div class="actions">
+        <button class="icon-btn" data-action="edit">
+          <svg width="20" height="20">
+            <use href="icons.svg#edit"></use>
+          </svg>
+        </button>
+        <button class="icon-btn" data-action="delete">
+          <svg width="20" height="20">
+            <use href="icons.svg#delete"></use>
+          </svg>
+        </button>
+      </div>
+      <div class="content">
+        <h2 class="title">Title</h2>
+        <p class="desc">Description</p>
+      </div>
+      <button class="primary" data-action="complete">
+        <svg width="20" height="20">
+          <use href="icons.svg#check"></use>
+        </svg>
+        Complete
+      </button>
+    </li>
+  </template>
 </body>
 </html>
