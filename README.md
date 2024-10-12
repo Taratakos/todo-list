@@ -2,7 +2,7 @@
 
 https://taratakos.github.io/todo-list/
 
-# Responsive Shoe Website
+# Todo list
 
 ## [Watch it on youtube](https://www.youtube.com/watch?v=uD_ED4P26Ks)
 
